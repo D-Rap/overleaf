@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{mypackage}
+
+%{
+\makeatletter
+\DeclareRobustCommand{\Group}{%
+  G\kern-.09em {\setbox0\hbox{T}%
+    \vbox to\ht0{\hbox{%
+      \csname S@\f@size\endcsname\fontsize\sf@size\z@ \math@fontsfalse\selectfont R}%
+      \vss}%
+    }\kern-.1em \hbox{O\kern-.1667em\lower.4ex\hbox{U}\kern-.15ex P}}
+
+\title{Aerodynamics 3 Short Questions}
+\date{January 2019}
+\author{T.C.S. Rendall fanboi \Group \\ Grupo Especial de Aerodinámica \\ G.E.A.s Bristol}
+%}
+\begin{document}
+
+\maketitle
+
+\end{document}
