@@ -1,0 +1,144 @@
+\usepackage[utf8]{inputenc}
+
+%for general information about packages check ctan.org
+
+%general template
+\usepackage[a4paper,left=2cm,top=2cm,right=2cm,bottom=1.3cm,headheight=25pt]{geometry}
+
+%%%%%% Header + Foot %%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%unit name
+%\lhead{AENG31300 - Sensors, Signals and Control}
+%\rhead{\includesvg[width=0.15\textwidth]{figures/Hpic.svg}}
+%\rfoot{\today}
+%s\lfoot{}
+%\renewcommand{\headrulewidth}{1pt}
+%\renewcommand{\footrulewidth}{1pt}
+
+%%%%%% Figures, Tables and Equations %%%%%%
+\usepackage{graphicx} % for figures
+\graphicspath{ {figures/} } %path for images, in the images folder
+\usepackage{float} % for figures in a container which cannot be broken between pages 
+\usepackage{multirow} % splitting environments into multiple parts
+\usepackage{booktabs} % for tables
+\usepackage{amsmath} % for equations
+\usepackage{todonotes}
+\usepackage{bm} %vector stuff wink
+\usepackage[numbered,framed]{matlab-prettifier} %MATLAB stuff
+\usepackage{subcaption} %for have tables side by side
+\usepackage{caption}
+%\usepackage{subfig} % figures side by side
+\usepackage{cleveref}
+\usepackage{svg}
+%\usepackage{minipage} %minipage doesn't need a package.
+
+
+% Aesthetics
+\setlength\parindent{0pt} % no indent throughout whole 
+
+% References/Usability
+%\usepackage{natbib}
+\usepackage[breaklinks]{hyperref} % link references/section
+\hypersetup{
+    colorlinks=true,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=black, %For the in-text referencing
+    linkcolor=black, % internal links such as ToC and references between figures/equations and etc
+    pdftitle = paper Title,
+}
+\usepackage{appendix} % additional features for appendix, such as \addappheadtotoc
+
+ \crefname{appsec}{Appendix}{Appendices}
+ 
+  %%%%%%%%%%%%%%%%%% BIB %%%%%%%%%%%%%%%%%%%%
+\usepackage[style=numeric,block=ragged, sorting=none]{biblatex}
+\addbibresource{reference.bib}
+\setlength\bibhang{0pt}
+\DeclareNameAlias{sortname}{last-first}
+\DeclareNameAlias{default}{last-first}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+\DeclareFieldFormat{urldate}{\mkbibbrackets{Accessed \thefield{urlday}\addspace \mkbibmonth{\thefield{urlmonth}}\addspace \thefield{urlyear}}}
+\DeclareFieldFormat{url}{[Online] Available at: \url{#1}}
+\DefineBibliographyStrings{english}{
+    january = {Jan},
+    february = {Feb},
+    march = {Mar},
+    april = {Apr},
+    may = {May},
+    june = {Jun},
+    july = {Jul},
+    august = {Aug},
+    september = {Sep},
+    october = {Oct},
+    november = {Nov},
+    december = {Dec}
+}
+\usepackage{xpatch}
+\xpatchbibmacro{author}{\printnames{author}}{\textbf{\printnames{author}}}{}{}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\urlstyle{same}
+\usepackage{csquotes}
+\DeclareSourcemap{
+    \maps{
+        \map{ % Replaces '{\_}', '{_}' or '\_' with just '_'
+            \step[fieldsource=url,
+                  match=\regexp{\{\\\_\}|\{\_\}|\\\_},
+                  replace=\regexp{\_}]
+        }
+        \map{ % Replaces '{'$\sim$'}', '$\sim$' or '{~}' with just '~'
+            \step[fieldsource=url,
+                  match=\regexp{\{\$\\sim\$\}|\{\~\}|\$\\sim\$},
+                  replace=\regexp{\~}]
+        }
+    }
+}
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  {\iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \bibopenbracket\usebibmacro{cite}\bibclosebracket}
+  {\supercitedelim}
+  {}
+\renewcommand{\cite}[1]{\supercite{#1}}
+%\usepackage{cite}
+
+% HYPERREF
+%\usepackage[hyperfootnotes=false, hidelinks=true]{hyperref}
+%\hypersetup{
+ % colorlinks   = true, %Colours links instead of ugly boxes
+ % urlcolor     = blue, %Colour for external hyperlinks
+%  linkcolor    = blue, %Colour of internal links
+ % citecolor    = red %Colour of citations
+%}
+ 
+%%%%%% FONTS %%%%%%
+%\usepackage{fontspec}
+%\setmainfont{Caliban}
+%\setmainfont{Times New Roman}
+%\setmainfont{Latin Modern Roman}
+%\setsansfont{Latin Modern Sans}
+%\setmonofont{Latin Modern Mono}
+
+%%%%%% Q&A %%%%%%
+\usepackage{lipsum}
+%\newcounter{question}
+%\setcounter{question}{0}
+\newcounter{question}[section]
+
+\newcommand\Que[1]{%
+   \leavevmode\par
+   \stepcounter{question}
+   \noindent
+   \alph{question}. \textbf{Q} --- #1\par}
+
+\newcommand\Ans[2][]{%
+    \leavevmode\par\noindent
+   {\leftskip37pt
+    \textbf{A} --- \textbf{#1}#2\par}}
