@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{mypackage}
 
+%%%%%%%%%%%%%%%%% Group Study Heading %%%%%%%%%%%%%%%%
+\iffalse
 %{
 \makeatletter
 \DeclareRobustCommand{\Group}{%
@@ -14,8 +16,33 @@
 \date{January 2019}
 \author{T.C.S. Rendall fanboi \Group \\ Grupo Especial de Aerodinámica \\ G.E.A.s Bristol}
 %}
+\fi
+%%%%%%%%%%%%%%%% For non-academic use %%%%%%%%%%%%%%%%%
+
+%\iffalse
 \begin{document}
+{\fontfamily{cmr}\selectfont
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{0.5pt} \\
+		\LARGE \textbf{\uppercase{Report Name}
+		\HRule{2pt} \\ [0.5cm]
+		\normalsize \today \vspace*{5\baselineskip}}
+		}
+}
+
+\date{}
+
+\author{
+		Dharapa Pattanakul (dp16812) \\ 
+		Universoty of Bristol \\
+		Department of Aerospace Engineering }
+%\fi
 
 \maketitle
+\newpage
+\tableofcontents
+\newpage
+
 
 \end{document}
